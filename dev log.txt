@@ -1,0 +1,147 @@
+#
+# DEVELOPMENT LOG
+##	This document is for each developer to summarise their contribution to the project.
+##	It may help keep track of feature wishlist and development.
+
+# CustomMission2 Bugs to report to Crisp:
+- Audio Play ignores volume parameter, always plays max volume
+
+# LIVING WISHLIST
+## Add features here you would like to see someone else make
+## When you have made one of these features, remove it and add it to the log below 
+	General :
+		- Auto-slow when entering messenger to allow for certain tricky action photos. Although Slow can already be toggled while in messenger
+	 	- Allow gallery image posting to FansChat. Allows the scoring of historical photos or photos from other mods eg PoliceHunt-NSFW gallery photos. Check against a History blacklist to prevent scoring the same picture multiple times
+	 	- Toggleable screen overlay of the FansChat, hunter-chat, and PoliceHunt chat logs.
+		- Randomised delay for receiving text from stalker; receiving it immediately feels jank
+
+	Anonymity :
+		- Use CreateArea/CreateZone to prompt Manaka to move location between photos
+		- optional Anonymity meter, like with focus meter
+		- Anonymity level affects how quickly Hunters recognise Manaka
+		- Subcondition or similar function to check the state of specific face regions. This allows VIP requests or other logic to specifically verify if eyes are visible, or mouth is visible
+		- Improve anonymity meter so that current conditions (lighting, camera angle) are relayed to the player
+		- Diagetically inform the player of the stalker spawn chance after taking photo
+
+	Photo score to include : 
+		- dropped items in frame! eg. posing naked next to your coat
+		- check if npcs are in frame, and what their state is, eg. Bonus points if each NPC:
+			- is a hunter or NSFW police,
+			- has Found Manaka, SeesPlayer and SeesFlashing
+			- are looking at Manaka directly
+		- mission-based conditions such as Bridge, Elevator
+
+	Vip Request
+		- Requests could sometimes use CreateArea/CreateZone to request photo at a location, eg within 20m of an already existing stage zone
+
+	Livestream mode:
+		- Struggle to maintain anonymity in realtime. eg. keep face out of view, change location frequently. This is depicted with a mission progress bar.
+		- Manaka gets a bonus/penalties based on viewer requests in realtime. 
+		- Visibility is checked realtime and slerped, and is depicated with a mission progress bar.
+		- Certain conditions are checked periodically using various performance optimisations
+
+# FansChat v16.1
+## by finalfantasyenjoyer
+	
+	- Improved English localisation:
+		- VIP mission conditions updated for clarity
+		- Settings menu descriptions updated for clarity
+		- Text messages after taking photos are improved
+		- Text messages from stalkers are improved
+		- "fanschat stalker" renamed to "FansChat Inbox"
+	- Anonymity is averaged again to prevent easy 100% anonymity. Changed default risky threshold to 0.3
+
+# Fanschat v15
+## by eicosa
+	General
+	- SETTINGS including
+	- LOCALIZATION v1! After changing language, please toggle the FansChat mod Off and On using the tickbox in the phone. Not everything is translated correctly, just some phone messages VIP request.
+	- Text_CN.code is ai-translated from english, hopefully Nn312 or someone can fix
+	- Flasher Rank-based progression, for newgames. Rank ranges from 0 to 7
+
+	FansChat
+	- Press V on keyboard to take photo immediately without opening phone. You can change the key in settings.code, where it says photoInput = CreateInput("<Keyboard>/v")
+	- Camera flash and sound effect
+	- Camera is on a cooldown
+	- Flasher Rank now effects/scales many mechanics
+	- Fans increase (Hype) is now based on the single highest scoring condition in the photo
+	- Hype requires buildup to a threshold before it awards anything. This is a design choice to require some consistency with staying in an area and taking photos. 
+	- Hype Amount required increases with Rank
+	- RP scores revised and a limit is imposed based on Rank. Don't worry, this mod still makes the progression way faster in newgame+.
+
+	VIP requests
+	- Added more conditions requests, including a few Cosplay Sets.
+	- VIP Condition requests are now gated by Flasher Rank, to reduce the chance you are asked to do something impossible.
+	- Condition score now affected by risk (RP-factor and Detection-factor)
+	- Condition validity and score now affected by Visibility
+	- When the VIP request condition is valid, eg a special mission bar is displayed showing how 'in view' the required conditions are.
+	- More filtering is done on conditions, but there is still some impossible combinations.
+	- Reduced the default score from 300 to 100, added it to meta settings. 
+	- Overall, VIP requests now have more variety and risk/reward. The highest RP i've earned from a single photo in this version of Fanschat was nearly 1000 RP, even with the score basis reduced.
+	- Experimental "HARD MODE" toggle, which currently forces a small set of specifically risky conditions, as well as cosplay sets.
+	- You can DENY Vip Requests in the phone. It costs 100 RP and you will lose 10% of your fans.
+
+	Visibility
+	- NPC Visibility!@! Due to technical limitations, an NPC can only be visible in photo if they are in frame, AND any of these are true:
+		- They can see Manaka,
+		- are between Manaka and the Camera,
+		- are within 4 meters of Manaka.
+	- Visibility calculations now include camera distance, with the resulting dynamic:
+	- a zoomed out shot includes many body parts in one photo, but reduces score by 50%
+	- a zoomed in shot excludes most body parts from the photo, but increases score by up to 50% (usually 20 to 30%)
+
+	Hunter Integeration
+	- New message notification sound for stalker messages, taken from SFM game files thanks Nn312.
+	- Hunter spawn distance moved a bit further away, and it is no longer possible for 2 to spawn at once.
+	- Instead, there is a 50% chance of existing hunters being immediately alerted to your location.
+	
+	Anonymity.
+	- Anonymity Meter! Now displays anonymity when photo is taken or FansChat app is open.
+	- Anonymity Zones! Taking photos twice in the same zone has a high chance of attracting/spawning Hunters. 
+	- Zones are shown when you take a photo, or open the FansChat app, or have triggered hunters. 
+	- Zones are blue if your last taken photo was outside of the zone, implying you are safe.
+	- Zones are flashing magenta if your last taken photo inside the zone, potentially triggering hunters.
+	- There is currently no particular way to wipe the Zones clear except changing map.
+	- Anonymity rating no longer REQUIRES multiple faces items.
+	- Anonymity rating now just adds up the highest of each face region. 
+
+	Developers
+	- there is now a mainLoop (and several other loops) in mainThread, to centralize polling etc
+	- added some globals for useful parts of Fanschat. Some of them work like getters & setters, others are more read-only:
+		FC.fans  # Manaka's current fandom
+		FC.fans_hype  # Manaka's current hype. At (200+rank) she will gain a percentage of Hype added to Fans.
+		FC.photoCool  # Manaka's camera's current Heat. This counts upward to _settings.photoCooldown, so 0 means a photo was taken this frame.
+		FC.anonymity # Manaka's most recent Anonymity rating, updated 10 times per second.
+		FC.viewCurrent  # List of Manaka's most recent view ratings for every body area, updated 10 times per second, at the same time as anonymity. The values are 0 or less if the part is not visible. See Visibility.Code.
+		FC.scoreTable  # The big data object containing all of the conditions FanChat uses.
+
+# Fanschat v14
+## by Nn312
+	First ever localization: Translated to CN
+
+	Added VIP request system
+	- when photo is scored, VIP might make a request
+	- randomly picks up to 4 conditions from several categories
+	- score depends on amount of conditions, and their severity
+
+	Includes a suffix+prefix chat response system with localisation option via Text_EN.code
+
+	Added Hunted mod integration with Anonymity, thanks to Hunted support from hacumefetitopikt
+	- When Manaka shows her face, Hunters have chance to move to her location
+	- Hunters will send provocative messages to "stalker" chat when your anonymity is compromised
+
+# Fanschat v12
+## by eicosa
+	Initial public release
+	- FansChat.code
+	- original spaghetti logic, todo and wishlist comments
+
+	ConditionRewards.code
+	- included huge collection of conditions and subconditions, see MakeScoreTable, AppendScoreTable, DefaultScoreTable
+	- included photo (snapshotdata) rp scoring logic in ScoreSnapshotData
+	- included 'visibility' checking logic inside ConditionsToSnapshotData
+
+	Anonymity.code
+	- original logic for checking if Manaka's face is hidden by items
+	- item coveraged rated independently across 3 regions - mouth, eyes, hair - and required at least two to be covered
+

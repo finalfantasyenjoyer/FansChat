@@ -31,16 +31,20 @@ get_hunter_area_text:
 		else
 			_result = ""
 
+# fuck it i'm just gonna put the strings here instead of Text_EN for now so that the area works
 get_hunter_prefix_list:
 	if Tx == null
 		Tx = Global("FC.Tx")
 	if level <= 1
-		_result = CreateList(Tx.Hunter_Prefix_L1_0,Tx.Hunter_Prefix_L1_1,Tx.Hunter_Prefix_L1_2,Tx.Hunter_Prefix_L1_3,Tx.Hunter_Prefix_L1_4)
+		#_result = CreateList(Tx.Hunter_Prefix_L1_0,Tx.Hunter_Prefix_L1_1,Tx.Hunter_Prefix_L1_2,Tx.Hunter_Prefix_L1_3,Tx.Hunter_Prefix_L1_4) # Works
+		_result = CreateList("", "", "")
 	elseif level == 2
-		_result = CreateList(Tx.Hunter_Prefix_L2_0,Tx.Hunter_Prefix_L2_1,Tx.Hunter_Prefix_L2_2,Tx.Hunter_Prefix_L2_3,Tx.Hunter_Prefix_L2_4)
+		#_result = CreateList(Tx.Hunter_Prefix_L2_0,Tx.Hunter_Prefix_L2_1,Tx.Hunter_Prefix_L2_2,Tx.Hunter_Prefix_L2_3,Tx.Hunter_Prefix_L2_4) # Works
+		_result = CreateList("", "", "")
 	else
-		_result = CreateList(Tx.Hunter_Prefix_L3_0,Tx.Hunter_Prefix_L3_1,Tx.Hunter_Prefix_L3_2,Tx.Hunter_Prefix_L3_3,Tx.Hunter_Prefix_L3_4)
-
+		#_result = CreateList(Tx.Hunter_Prefix_L3_0,Tx.Hunter_Prefix_L3_1,Tx.Hunter_Prefix_L3_2,Tx.Hunter_Prefix_L3_3,Tx.Hunter_Prefix_L3_4) # Works
+		_result = CreateList("", "", "")
+		
 get_hunter_suffix_list:
 	if Tx == null
 		Tx = Global("FC.Tx")
@@ -48,11 +52,15 @@ get_hunter_suffix_list:
 		areaName = ""
 
 	if level <= 1
-		_result = CreateList("You're at "+areaName+", aren't you?","I'm looking right toward "+areaName+".","Being like this at "+areaName+" makes it easy for me to find you.")
+		#_result = CreateList(Tx.Hunter_Suffix_L1_0, Tx.Hunter_Suffix_L1_1, Tx.Hunter_Suffix_L1_2) # Doesn't work
+		_result = CreateList("You're at the "+areaName+", aren't you? I'm on my way.")
 	elseif level == 2
-		_result = CreateList("You're at "+areaName+" right now.","Don't move, I'm almost at "+areaName+".","At "+areaName+"... you're really conspicuous.")
+		#_result = CreateList(Tx.Hunter_Suffix_L2_0, Tx.Hunter_Suffix_L2_1, Tx.Hunter_Suffix_L2_2) # Doesn't work
+		_result = CreateList("", "", "")
 	else
-		_result = CreateList(areaName+"... I'll make my way over slowly.","Wait at "+areaName+", don't stop.","Don't move, staying like this at "+areaName+" makes it easier for me to find you.")
+		#_result = CreateList(Tx.Hunter_Suffix_L3_0, Tx.Hunter_Suffix_L3_1, Tx.Hunter_Suffix_L3_2) # Doesn't work
+		_result = CreateList("", "", "")
+
 get_hunter_route_msg_list:
 	_result = CreateList(Tx.Hunter_Route_0,Tx.Hunter_Route_1,Tx.Hunter_Route_2,Tx.Hunter_Route_3)
 

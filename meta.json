@@ -22,15 +22,15 @@
 		},
 		{
 			"type":"Label",
-			"title":"Photos >"
+			"title":"Photos /"
 		},
 		{
 			"type":"Label",
-			"title":" RP reward is based on items,actions,poses,circumstances visible in photo - as well as number of fans."
+			"title":"RP reward is based on items, actions, poses, circumstances visible in photo, and the number of fans you have."
 		},
 		{
 			"type":"Label",
-			"title":"   -Photo RP scale"
+			"title":"Photo RP scale:"
 		},
 		{
 			"name":"conditionScoreScale",
@@ -42,7 +42,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -Camera flash"
+			"title":"Camera flash:"
 		},
 		{
 			"name":"cam_Flash",
@@ -52,7 +52,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -Use RP-Bonus and Detection to reward risky cosplay and penalize easy cosplay. Also applies to fan hype."
+			"title":"Use RP-Bonus and Detection to reward risky cosplay and penalize easy cosplay (Also applies to fan hype)"
 		},
 		{
 			"name":"useAbstractRisk",
@@ -62,7 +62,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -Cooldown between photos"
+			"title":"Cooldown between photos:"
 		},
 		{
 			"name":"photoCooldown",
@@ -74,11 +74,11 @@
 		},
 		{
 			"type":"Label",
-			"title":"Followers >"
+			"title":"Followers /"
 		},
 		{
 			"type":"Label",
-			"title":"   -RP per fan"
+			"title":"RP per fan:"
 		},
 		{
 			"name":"score_fansScale",
@@ -90,7 +90,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -Increase in fans"
+			"title":"Increase in fans:"
 		},
 		{
 			"name":"fans_bumpScale",
@@ -102,7 +102,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -Fan boredom (a threshold to increase hype)"
+			"title":"Fan boredom (a threshold to increase hype)"
 		},
 		{
 			"name":"fans_boredom",
@@ -114,7 +114,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -% to recieve a VIP request"
+			"title":"% chance to recieve a VIP request:"
 		},
 		{
 			"name":"vip_RequestChance",
@@ -126,7 +126,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -% of VIP requests in new area"
+			"title":"% chance for VIP requests to be in a new area:"
 		},
 		{
 			"name":"vip_requestAreaChance",
@@ -138,7 +138,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -VIP RP scale"
+			"title":"VIP RP scale:"
 		},
 		{
 			"name":"vip_requestScore",
@@ -150,7 +150,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -VIP RP multiplier per condition"
+			"title":"VIP RP multiplier per condition:"
 		},
 		{
 			"name":"vip_requestPartMultiplier",
@@ -162,7 +162,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -VIP can request cosplay sets"
+			"title":"VIPs can request cosplay sets:"
 		},
 		{
 			"name":"vip_requestAllowSets",
@@ -172,7 +172,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -VIP request HARD MODE (experimental)"
+			"title":"VIP request HARD MODE (experimental)"
 		},
 		{
 			"name":"vip_requestHardMode",
@@ -182,15 +182,15 @@
 		},
 		{
 			"type":"Label",
-			"title":"Anonymity >"
+			"title":"Anonymity /"
 		},
 		{
 			"type":"Label",
-			"title":" Revealing your uncovered face in photos attracts Hunters."
+			"title":" Revealing your face in photos attracts Hunters. Cover your face to stay anonymous."
 		},
 		{
 			"type":"Label",
-			"title":"   -Min 'safe' face cover, 0 to disable"
+			"title":"Photos taken below this anonymity will be risky:"
 		},
 		{
 			"name":"anonThreshold",
@@ -198,11 +198,11 @@
 			"type":"Float",
 			"minvalue":0,
 			"maxvalue":2,
-			"default":0.5
+			"default":0.3
 		},
 		{
 			"type":"Label",
-			"title":"   -Manaka refuses to take photo if face coverage lower than:"
+			"title":"Manaka refuses to take photo if anonymity is below:"
 		},
 		{
 			"name":"anonRefusal",
@@ -214,11 +214,11 @@
 		},
 		{
 			"type":"Label",
-			"title":"Hunters >"
+			"title":"Hunters /"
 		},
 		{
 			"type":"Label",
-			"title":"   -Hunter spawn chance general, scaling with Anonymity"
+			"title":"Hunter spawn chance, scaling with Anonymity:"
 		},
 		{
 			"name":"hunterChance",
@@ -230,7 +230,7 @@
 		},
 		{
 			"type":"Label",
-			"title":"   -Extra Hunter spawn chance when face revealed"
+			"title":"Extra Hunter spawn chance if photo is risky:"
 		},
 		{
 			"name":"lowAnonTriggerChance",
