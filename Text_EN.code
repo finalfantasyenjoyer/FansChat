@@ -17,7 +17,13 @@ Locale_EN:
 	Loc.FansChat_BestPrefix = "Your fans loved: "
 	Loc.FansChat_BestSuffix = "."
 
-	Loc.FansChat_LowAnonDanger = "This one is too risky..."
+	Loc.FansChat_LowAnonDanger_0 = "This one is way too risky.."
+	Loc.FansChat_LowAnonDanger_1 = "Why am I posting my face here..?"
+	Loc.FansChat_LowAnonDanger_2 = "My face got in the frame..."
+	
+	Loc.FansChat_PhotoInRiskZone_0 = "wait, i know that spot"
+	Loc.FansChat_PhotoInRiskZone_1 = "i saw her a few minutes ago LOL"
+	
 	Loc.FansChat_RefuseFace = "I can't show my face... what if they find me?"
 	Loc.FansChat_HomeWarning = "I shouldn't expose where I live..."
 
@@ -75,11 +81,11 @@ Locale_EN:
 
 
 	# VIP 条件文本
-	Loc.VIP_Exposed_Front = "Expose Front"
-	Loc.VIP_Exposed_Hip = "Expose Hips"
-	Loc.VIP_Exposed_Upper = "Expose Upper Body"
-	Loc.VIP_Exposed_All = "Fully Exposed"
-	Loc.VIP_Exposed_Any = "Expose Anything"
+	Loc.VIP_Exposed_Front = "Flash your front"
+	Loc.VIP_Exposed_Hip = "Flash your butt"
+	Loc.VIP_Exposed_Upper = "Flash your upper body"
+	Loc.VIP_Exposed_All = "Naked"
+	Loc.VIP_Exposed_Any = "Flash Anything"
 
 	Loc.VIP_NearNPC = "Near NPC"
 	Loc.VIP_Watched = "Watched,SubCondition_Vis_NPC"
@@ -198,38 +204,39 @@ Locale_EN:
 	Loc.Hunter_Area_Mansion = "Apartment Front"
 	Loc.Hunter_Area_ShoppingMall = "Shopping Mall"
 
-	# 等级 <= 1
+	
+	# Hunter Level <= 1 / 等级 <= 1
 	Loc.Hunter_Prefix_L1_0 = "What I just saw... was that not my imagination?"
 	Loc.Hunter_Prefix_L1_1 = "Are you doing that on purpose to get my attention?"
 	Loc.Hunter_Prefix_L1_2 = "Do you know someone nearby is watching you?"
 	Loc.Hunter_Prefix_L1_3 = "That move just now felt like you were quietly luring me over."
-	Loc.Hunter_Prefix_L1_4 = "Don't act like nothing's happening... you're really hard to ignore like this."
+	Loc.Hunter_Prefix_L1_4 = "Don't act like nothing's happening... you're making me hard right now."
 
-	Loc.Hunter_Suffix_L1_0 = "You're at {AREA}, aren't you?"
-	Loc.Hunter_Suffix_L1_1 = "I'm looking right toward {AREA}."
-	Loc.Hunter_Suffix_L1_2 = "Being like this at {AREA} makes it easy for me to find you."
+	Loc.Hunter_Suffix_L1_0 = "You're at the {AREA}, aren't you?"
+	Loc.Hunter_Suffix_L1_1 = "I'm looking right toward the {AREA}."
+	Loc.Hunter_Suffix_L1_2 = "Being like this at the {AREA} makes it easy for me to find you."
 
-	# 等级 == 2
+	# Hunter Level == 2 / 等级 == 2
 	Loc.Hunter_Prefix_L2_0 = "I've been watching you for a while now."
-	Loc.Hunter_Prefix_L2_1 = "The way you are now... looks even more like you're waiting for someone to come closer."
+	Loc.Hunter_Prefix_L2_1 = "The way you are now... looks like you're waiting for someone to come closer."
 	Loc.Hunter_Prefix_L2_2 = "Are you waiting for someone to not be able to hold back and walk over?"
 	Loc.Hunter_Prefix_L2_3 = "The more you keep going, the more I want to come find you directly."
-	Loc.Hunter_Prefix_L2_4 = "The way you look right now makes it very hard for anyone to look away."
+	Loc.Hunter_Prefix_L2_4 = "The way you look right now makes it very hard for anyone to not fuck you."
 
-	Loc.Hunter_Suffix_L2_0 = "You're at {AREA} right now."
-	Loc.Hunter_Suffix_L2_1 = "Don't move, I'm almost at {AREA}."
-	Loc.Hunter_Suffix_L2_2 = "At {AREA}... you're really conspicuous."
+	Loc.Hunter_Suffix_L2_0 = "You're at the {AREA} right now."
+	Loc.Hunter_Suffix_L2_1 = "Don't move, I'm almost at the {AREA}."
+	Loc.Hunter_Suffix_L2_2 = "Stay at the {AREA} if you want me to come fuck you."
 
-	# 等级 >= 3
+	# # Hunter Level >= 3 / 等级 >= 3
 	Loc.Hunter_Prefix_L3_0 = "I've already started walking toward you."
-	Loc.Hunter_Prefix_L3_1 = "Are you... inviting me to come straight over?"
+	Loc.Hunter_Prefix_L3_1 = "Are you inviting me to come straight over?"
 	Loc.Hunter_Prefix_L3_2 = "Keep going, I want to see what you look like right now with my own eyes."
 	Loc.Hunter_Prefix_L3_3 = "Stop running around, otherwise I'll have to chase you all the way."
 	Loc.Hunter_Prefix_L3_4 = "If you keep this up, I'll be standing right in front of you very soon."
 
-	Loc.Hunter_Suffix_L3_0 = "{AREA}... I'll make my way over slowly."
-	Loc.Hunter_Suffix_L3_1 = "Wait at {AREA}, don't stop."
-	Loc.Hunter_Suffix_L3_2 = "Don't move, staying like this at {AREA} makes it easier for me to find you."
+	Loc.Hunter_Suffix_L3_0 = "The {AREA}... I'll make my way over slowly."
+	Loc.Hunter_Suffix_L3_1 = "Wait at the {AREA}, don't stop."
+	Loc.Hunter_Suffix_L3_2 = "Don't move, staying like this at the {AREA} makes it easier for me to find you."
 
 	# 路线消息
 	Loc.Hunter_Route_0 = "I'm coming to find you right now."
@@ -239,7 +246,7 @@ Locale_EN:
 
 	# 可选
 	Loc.Hunter_Lost = "......I can't find you."
-	Loc.Hunter_ArrivedNear = "I'm already near {AREA}."
+	Loc.Hunter_ArrivedNear = "I'm already near the {AREA}."
 
 	Output:
 		if Global("FC.Tx") == null

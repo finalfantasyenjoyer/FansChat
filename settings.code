@@ -5,7 +5,7 @@
 
 # Input
 debugInput = CreateInput("<Keyboard>/p")
-photoInput = CreateInput("<Keyboard>/v")
+photoInput = CreateInput("<Keyboard>/b")
 
 # game settings
 fansBump = 1

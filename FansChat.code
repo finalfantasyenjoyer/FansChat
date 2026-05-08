@@ -51,6 +51,12 @@ if _save.fans==null
 # -----------------------------------------
 # 文本函数
 # -----------------------------------------
+get_fanschat_risky_message_list:
+	_result = CreateList(Tx.FansChat_LowAnonDanger_0, Tx.FansChat_LowAnonDanger_1,)
+
+get_fanschat_risk_zone_message_list:
+	_result = CreateList(Tx.FansChat_PhotoInRiskZone_0, Tx.FansChat_PhotoInRiskZone_1,)
+
 get_fanschat_normal_prefix_list:
 	_result = CreateList(Tx.FansChat_NormalPrefix_0,Tx.FansChat_NormalPrefix_1,Tx.FansChat_NormalPrefix_2,Tx.FansChat_NormalPrefix_3,Tx.FansChat_NormalPrefix_4,Tx.FansChat_NormalPrefix_5)
 
@@ -191,8 +197,8 @@ mainThread:
 		update_vip_mp()
 		penalty = GetCurrentEarnRP()-100
 		SetCurrentEarnRP = Max(0, penalty)
-		chat.Add("Bribed moderators to remove the request: -100 RP.", "Right", silent=true)
-		chat.Add("Some fans were dissapointed and left.", "Right", silent=true)
+		chat.Add("Asked moderators to ban the user: -100 RP.", "Right", silent=true)
+		chat.Add("Some fans were disappointed and left.", "Right", silent=true)
 		_save.fans = Ceil(_save.fans * 0.9)
 		Global("FC.fans", _save.fans)
 		thread.Goto("step1")
@@ -221,37 +227,48 @@ mainThread:
 			camPos = Vector(_state.Camera.x, _state.Camera.y, _state.Camera.z)
 			targetPos = Vector(_state.CameraTarget.Body.x, _state.CameraTarget.Body.y, _state.CameraTarget.Body.z)
 			snapshotobject = CreateSnapshot(position = _state.Camera, direction = camDir, width = 512, height = 512, fov = 60)
-
+			Log("FC.main: Photo taken with " + anon + " anonymity.")
+			Log("FC.main: Safe anonymity threshold = " + _settings.anonThreshold)
+			
 			lowAnon = false
-			if anon < _settings.anonThreshold || zone_risk.Inside() || zone_risk.DistanceToNearest()<0.2
-				area_lastHunting=true
-				area_lastAlpha=1
+			photoInRiskZone = false
+			if anon < _settings.anonThreshold #BUG: floating points make it unreliable if the player sets their threshold to the same as their anonymity
+				area_lastHunting = true
+				area_lastAlpha = 1
 				lowAnon = true
-				Log("FC.main: Low anonymity photo allowed, hunter risk enabled.")
+				Log("FC.main: Low anonymity photo taken, hunter risk increased.")
+			if zone_risk.Inside() || zone_risk.DistanceToNearest()<0.2
+				area_lastHunting = true
+				area_lastAlpha = 1
+				lowAnon = true
+				photoInRiskZone = true
+				Log("FC.main: photo taken in a risk zone, hunter risk increased.")
 			else
-				area_lastHunting=false
-				area_lastAlpha=1
+				area_lastHunting = false
+				area_lastAlpha = 1
 
-			thread.Goto("photoNowSend", sso=snapshotobject, lowAnon=lowAnon)
+			thread.Goto("photoNowSend", sso=snapshotobject, lowAnon=lowAnon, photoInRiskZone=photoInRiskZone)
 
 	photoNowSend:
 		if lowAnon == null
 			lowAnon = false
-
+		if photoInRiskZone == null
+			photoInRiskZone = false
+		
 		file = sso.Save(hidden = false)
 		sso = null
 
-		# flash!
+		# Flash!
 		if _settings.cam_Flash
 			ShowBlackscreen(color=Color(1, 1, 1, 0.1),  delay=0.1, fadein=0.05, duration=0.05, fadeout=0.25)
 		sndCamera.Play(0.1)
 
-		# area!
+		# Area!
 		areasUpdate()
 
 		chat.Add(file, "Right", user="M-chan", silent=true)
 
-		hunterChance = _settings.hunterChance * (1- anon)
+		hunterChance = _settings.hunterChance * (1 - anon)
 		hunterLevel = 1
 
 		if viewCurrent.face > 0.2
@@ -327,15 +344,15 @@ mainThread:
 
 			msg = ""
 			if Random() < 0.75
-				msg = p + "，" + s
+				msg = p + s
 			else
 				msg = p
-
-			replyChatData[i] = CreateList(text=msg, align="Left", user="", delay=0.5)
+				
+			replyChatData[i] = CreateList(text=msg, align="Left", user="Chat Member", delay=0.8)
 
 			i = i + 1
 
-		thread.Goto("photoNowSend_afterReply", imageRef=file, lowAnon=lowAnon, hunterLevel=hunterLevel, hunterChance=hunterChance, replyChatData=replyChatData)
+		thread.Goto("photoNowSend_afterReply", imageRef=file, lowAnon=lowAnon, photoInRiskZone=photoInRiskZone, hunterLevel=hunterLevel, hunterChance=hunterChance, replyChatData=replyChatData)
 	
 	photoNowSend_afterReply:
 		spawnPos = get_hunter_spawn_pos()
@@ -345,9 +362,19 @@ mainThread:
 				spawnPos = _state.Position
 
 		if lowAnon
-			chat.Add(Tx.FansChat_LowAnonDanger, "Right", silent=false)
-			
-			# Log("FC.main: lowAnon check")
+			message = null
+			if photoInRiskZone
+				message = get_fanschat_risk_zone_message_list()
+				message = message[RandomInt(0, message.Count())]
+				chat.Add(message, "Left", "Chat Member", silent=false)
+				Log("FC.main: risk zone message selected.")
+			else
+				message = get_fanschat_risky_message_list()
+				message = message[RandomInt(0, message.Count())]
+				chat.Add(message, "Right", "M-chan", silent=false)
+				Log("FC.main: risky message selected.")
+				
+			Log("FC.main: lowAnon check")
 			if Random() < lowAnonTriggerChance
 				data = GetSnapshotData(imageRef)
 
@@ -363,8 +390,8 @@ mainThread:
 				if position == null
 					position = spawnPos
 
-				# Log("FC.main: lowAnon hunter spawn")
-				# Log("FC.main: send hunter | warnPos=" + position + " spawnPos=" + spawnPos)
+				#Log("FC.main: lowAnon hunter spawn")
+				#Log("FC.main: send hunter | warnPos=" + position + " spawnPos=" + spawnPos)
 
 				if spawnPos != null
 					# Log("FC.main: send hunter | spawn stage=" + spawnPos.stage + " x=" + spawnPos.x + " y=" + spawnPos.y + " z=" + spawnPos.z)
@@ -470,6 +497,7 @@ mainThread:
 		arisk=1
 		if useAbstractRisk
 			arisk = (photo.Detection + photo.RpBonus)/2
+			Log("DEBUG: Detection = " + photo.Detection + ".")
 		# Log("FC.main: arisk: " + arisk)
 
 		fanScore = Ceil(_save.fans*_settings.score_fansScale - _settings.fans_boredom*_state.Rank)

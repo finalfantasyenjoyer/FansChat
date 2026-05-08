@@ -425,7 +425,7 @@ generate_vip_request:
 	area_pool = CreateList("Residence")
 	face_pool = CreateList("SubCondition_Face_Lewd","SubCondition_Face_Orgasm","AdultToy_EyeMask,SubCondition_Vis_Face,SubCondition_Vis_High")
 	cosplayset_pool = CreateList("SubCondition_Set_Succubus","SubCondition_Set_TacticalMaid")# "SubCondition_Set_AdultSweater","SubCondition_Set_Jumpsuit"
-	conflicting_pool = CreateList("Futanari") #IsDayTime, InOpenToilet and other conflicts added later in Part logic
+	conflicting_pool = CreateList("") #IsDayTime, InOpenToilet and other conflicts added later in Part logic # HACK: "Futanari" removed from list
 
 	if _state.Futanari
 		#risk_pool.Insert("Bukkake") #doesnt work?

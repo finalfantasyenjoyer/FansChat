@@ -6,7 +6,7 @@
 DefaultAnonymityTable:
 	table = MakeAnonymityTable()
 
-	table = AppendAnonymityTable(table, "m_cosplay_general_head_mask", CreateList(mouth=1,eyes=0,hair=0))#"Mask"
+	table = AppendAnonymityTable(table, "m_cosplay_general_head_mask", CreateList(mouth=1.0,eyes=0,hair=0))#"Mask"
 	table = AppendAnonymityTable(table, "m_cosplay_general_head_glasses", CreateList(mouth=0,eyes=0.5,hair=0))#"Glasses"
 	table = AppendAnonymityTable(table, "m_cosplay_general_head_sun_glasses", CreateList(mouth=0,eyes=0.9,hair=0))#"Sunglasses"
 	table = AppendAnonymityTable(table, "m_cosplay_general_head_osyaburi", CreateList(mouth=0.33,eyes=0,hair=0))#"Pacifier"
@@ -73,26 +73,27 @@ AppendAnonymityTable:
 CheckAnonymity:
 	if table == null
 		table = _args[0]
-	#Log("FC.Anon : CheckAnonymity > Started ")
-	cm=0 # Anonymity mouth
-	ce=0 # Anonymity eyes
-	ch=0 # Anonymity hair
+	#Log("FC.Anon: CheckAnonymity > Started")
+	
+	checkMouth=0 # Anonymity mouth
+	checkEyes=0 # Anonymity eyes
+	checkHair=0 # Anonymity hair
 	anonymity = 0
 	i = table.array.Count()-1
 	while i>=0 
-		#Log("FC.Anon :  < " +i+ " : " + table.array[i].name)
+		#Log("FC.Anon:  < " +i+ " : " + table.array[i].name)
 		if table.array[i].co.Check() #if concealing item is worn
-			cm=Max(cm, table.array[i].face.mouth)
-			ce=Max(ce, table.array[i].face.eyes)
-			ch=Max(ch, table.array[i].face.hair)
-			# Log(" < " + i +" "+ table.array[i].name )
+			checkMouth=Max(checkMouth, table.array[i].face.mouth)
+			checkEyes=Max(checkEyes, table.array[i].face.eyes)
+			checkHair=Max(checkHair, table.array[i].face.hair)
+			#Log(" < " + i +" " + table.array[i].name )
 		i-=1
 
-	# an_min = Min(cm,ce,ch)
-	# an_max = Max(cm,ce,ch)
-	# anonymity =(an_min+an_max)/2
-	anonymity = Min(1, cm+ce+ch)
-	# Log("CheckAnonymity > Finished: " + anonymity)
+	# an_min = Min(checkMouth,checkEyes,checkHair)
+	# an_max = Max(checkMouth,checkEyes,checkHair)
+	# anonymity = (an_min+an_max)/2
+	anonymity = Min(1, (checkMouth+checkEyes+checkHair) / 3)
+	#Log("CheckAnonymity finished: Anonymity = " + anonymity)
 
 	_result=anonymity
 
