@@ -554,7 +554,8 @@ ConditionVisibility: # conString [, modHip,modChest]
 		taggedFront = Max(0,Find("_Front", conString))
 		taggedFront += Max(0,Find("_Vis_Breast", conString))
 		taggedFront += taggedAny
-
+		
+		# !!!! futa tag here
 		taggedFuta = Max(0,Find("Futa", conString))
 		# Log("FC.CR: Tagged Futa")
 

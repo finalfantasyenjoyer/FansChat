@@ -17,47 +17,50 @@ Locale_EN:
 	Loc.FansChat_BestPrefix = "Your fans loved: "
 	Loc.FansChat_BestSuffix = "."
 
-	Loc.FansChat_LowAnonDanger_0 = "This one is way too risky.."
-	Loc.FansChat_LowAnonDanger_1 = "Why am I posting my face here..?"
+	Loc.FansChat_LowAnonDanger = "This one is way too risky.."
+	Loc.FansChat_LowAnonDanger_1 = "What am I doing, posting my face here..?"
 	Loc.FansChat_LowAnonDanger_2 = "My face got in the frame..."
-	
-	Loc.FansChat_PhotoInRiskZone_0 = "wait, i know that spot"
+	Loc.FansChat_LowAnonDanger_3 = "I forgot to cover my face..!"
+	Loc.FansChat_LowAnonDanger_4 = "Here's a face reveal...?"
+
+	Loc.FansChat_PhotoInRiskZone = "wait, i know that spot"
 	Loc.FansChat_PhotoInRiskZone_1 = "i saw her a few minutes ago LOL"
+	Loc.FansChat_PhotoInRiskZone_2 = "I know where she is"
 	
 	Loc.FansChat_RefuseFace = "I can't show my face... what if they find me?"
 	Loc.FansChat_HomeWarning = "I shouldn't expose where I live..."
 
 	# 普通回复前半句
-	Loc.FansChat_NormalPrefix_0 = "This one is a bit daring..."
-	Loc.FansChat_NormalPrefix_1 = "Are you starting to loosen up?"
-	Loc.FansChat_NormalPrefix_2 = "That angle is quite something"
-	Loc.FansChat_NormalPrefix_3 = "This one is a little teasing"
-	Loc.FansChat_NormalPrefix_4 = "Shooting like this is a bit risky"
-	Loc.FansChat_NormalPrefix_5 = "Feels like you're getting bolder and bolder"
+	Loc.FansChat_NormalPrefix_0 = "TITS!!!"
+	Loc.FansChat_NormalPrefix_1 = "Are you wet from us watching you?"
+	Loc.FansChat_NormalPrefix_2 = "That angle is so good."
+	Loc.FansChat_NormalPrefix_3 = "You like to tease us, huh ;)"
+	Loc.FansChat_NormalPrefix_4 = "Doing something like this outside is great.."
+	Loc.FansChat_NormalPrefix_5 = "How do i become a VIP?"
 
 	# 普通回复后半句
-	Loc.FansChat_NormalSuffix_0 = "Keep trying?"
-	Loc.FansChat_NormalSuffix_1 = "One more?"
-	Loc.FansChat_NormalSuffix_2 = "Don't stop"
-	Loc.FansChat_NormalSuffix_3 = "This is nice"
-	Loc.FansChat_NormalSuffix_4 = "Interesting"
-	Loc.FansChat_NormalSuffix_5 = "Can you be even bolder?"
+	Loc.FansChat_NormalSuffix_0 = " Take another for us?"
+	Loc.FansChat_NormalSuffix_1 = " one more?"
+	Loc.FansChat_NormalSuffix_2 = " Don't stop"
+	Loc.FansChat_NormalSuffix_3 = " This is so hot."
+	Loc.FansChat_NormalSuffix_4 = " you're so hot"
+	Loc.FansChat_NormalSuffix_5 = " Could you be bolder?"
 
 	# VIP风格回复前半句
-	Loc.FansChat_VIPPrefix_0 = "You're really going to make people obsessed like this"
-	Loc.FansChat_VIPPrefix_1 = "Keep going, don't stop"
-	Loc.FansChat_VIPPrefix_2 = "Do you know everyone is watching?"
-	Loc.FansChat_VIPPrefix_3 = "Are you doing this on purpose to tease everyone?"
-	Loc.FansChat_VIPPrefix_4 = "The way you are right now is already out of control"
-	Loc.FansChat_VIPPrefix_5 = "You're keeping everyone in suspense"
+	Loc.FansChat_VIPPrefix_0 = "I'm fucking obsessed with you."
+	Loc.FansChat_VIPPrefix_1 = "Keep going, don't stop!"
+	Loc.FansChat_VIPPrefix_2 = "We're all jacking off to you right now."
+	Loc.FansChat_VIPPrefix_3 = "Are you trying to make us cum?"
+	Loc.FansChat_VIPPrefix_4 = "You're so horny!!"
+	Loc.FansChat_VIPPrefix_5 = "I wish I could see you do that in person."
 
 	# VIP风格回复后半句
-	Loc.FansChat_VIPSuffix_0 = "Keep going"
-	Loc.FansChat_VIPSuffix_1 = "Don't stop"
-	Loc.FansChat_VIPSuffix_2 = "Go even further"
-	Loc.FansChat_VIPSuffix_3 = "Stay just like that"
-	Loc.FansChat_VIPSuffix_4 = "One more"
-	Loc.FansChat_VIPSuffix_5 = "Keep showing me"
+	Loc.FansChat_VIPSuffix_0 = " Let us see all of you."
+	Loc.FansChat_VIPSuffix_1 = " I'm cumming to you"
+	Loc.FansChat_VIPSuffix_2 = " Go even further!"
+	Loc.FansChat_VIPSuffix_3 = " Stay just like that."
+	Loc.FansChat_VIPSuffix_4 = " Take another! Now!"
+	Loc.FansChat_VIPSuffix_5 = " Keep showing us your body."
 
 	# =========================================
 	# VIP 文本定义
@@ -65,7 +68,7 @@ Locale_EN:
 
 	Loc.VIP_None = "No VIP requests at the moment"
 	Loc.VIP_RequestPrefix = "VIP Request: "
-	Loc.VIP_AreaPrefix = "(Area this time: "
+	Loc.VIP_AreaPrefix = " (Requested Area: "
 	Loc.VIP_AreaSuffix = ")"
 	Loc.VIP_CurrentAreaSuffix = "(Current Area)"
 	Loc.VIP_Unknown = "Unknown"
@@ -84,7 +87,7 @@ Locale_EN:
 	Loc.VIP_Exposed_Front = "Flash your front"
 	Loc.VIP_Exposed_Hip = "Flash your butt"
 	Loc.VIP_Exposed_Upper = "Flash your upper body"
-	Loc.VIP_Exposed_All = "Naked"
+	Loc.VIP_Exposed_All = "While Naked"
 	Loc.VIP_Exposed_Any = "Flash Anything"
 
 	Loc.VIP_NearNPC = "Near NPC"
@@ -92,7 +95,7 @@ Locale_EN:
 	Loc.VIP_ShowingOff = "Showing Off,SubCondition_Vis_NPC"
 	Loc.VIP_InLight = "In the Light"
 	Loc.VIP_InOpenToilet = "In an Open Toilet Stall"
-	Loc.VIP_NPCArea = "In a Crowded Area"
+	Loc.VIP_NPCArea = "Where people pass by"
 
 	Loc.VIP_Crouching = "Crawling"
 	Loc.VIP_Peeing = "Urinating"
@@ -129,44 +132,44 @@ Locale_EN:
 	Loc.VIP_Bukkake = "Ejaculating on someone"
 	Loc.VIP_IsNightTime = "At night"
 	Loc.VIP_IsDayTime = "During the day"
-	Loc.VIP_Skill_Realtime = "In realtime"
+	Loc.VIP_Skill_Realtime = "Without using time slow"
 
-	Loc.VIP_Action_GanimataWalk = "Bowlegged Walk"
-	Loc.VIP_Action_AhegaoDoublePiece = "Ahegao Double Peace"
-	Loc.VIP_Action_HipShake = "Butt wiggle"
-	Loc.VIP_Action_GanimataHip = "Bow-legged All Fours"
-	Loc.VIP_Action_KaikyakuFella = "Spread-leg Blowjob"
-	Loc.VIP_Action_Dogeza = "Dogeza Bow"
-	Loc.VIP_Action_DogTintin = "Penis Pose"
-	Loc.VIP_Action_IBalance = "I-Split Balance"
-	Loc.VIP_Action_WakimiseCrouch = "Armpit Squat"
-	Loc.VIP_Action_MituasiOnani = "Three-leg masturbation"
-	Loc.VIP_Action_Tebura = "Hand bra"
-	Loc.VIP_Action_PeeKaikyaku = "Spread-Leg Urination"
-	Loc.VIP_Action_PeeDog = "Dog-Style Urination"
-	Loc.VIP_Action_ChikubiRotate = "Nipple Play"
-	Loc.VIP_Action_OnaniYotuashi = "Doggy masturbation"
-	Loc.VIP_Action_OnaniNeGanimata = "Supine Masturbation"
-	Loc.VIP_Action_OnaniNormal = "Masturbation"
-	Loc.VIP_Action_NeKataashiage = "Supine one-leg raise"
-	Loc.VIP_Action_OnaniArmKuri = "Clitoris Play"
-	Loc.VIP_Action_GanimataKoshiHeko = "Hip-Thrust"
-	Loc.VIP_Action_Haigure = "High-Cut Pose"
-	Loc.VIP_Action_PeeStand = "Standing Urination"
-	Loc.VIP_Action_OnaniSikoru = "Stroking"
+	Loc.VIP_Action_GanimataWalk = "Doing a Bowlegged Walk"
+	Loc.VIP_Action_AhegaoDoublePiece = "Doing a Ahegao Double Peace"
+	Loc.VIP_Action_HipShake = "Doing a Butt wiggle"
+	Loc.VIP_Action_GanimataHip = "Being Bow-legged All Fours"
+	Loc.VIP_Action_KaikyakuFella = "Doing a Spread-leg Blowjob"
+	Loc.VIP_Action_Dogeza = "Doing a Dogeza Bow"
+	Loc.VIP_Action_DogTintin = "Doing a Penis Pose"
+	Loc.VIP_Action_IBalance = "Doing an I-Split Balance"
+	Loc.VIP_Action_WakimiseCrouch = "Doing a Armpit Squat"
+	Loc.VIP_Action_MituasiOnani = "Doing Three-leg masturbation"
+	Loc.VIP_Action_Tebura = "Doing a Hand bra"
+	Loc.VIP_Action_PeeKaikyaku = "Doing Spread-Leg Urination"
+	Loc.VIP_Action_PeeDog = "Doing Dog-Style Urination"
+	Loc.VIP_Action_ChikubiRotate = "Doing Nipple Play"
+	Loc.VIP_Action_OnaniYotuashi = "Doing Doggy masturbation"
+	Loc.VIP_Action_OnaniNeGanimata = "Doing Supine Masturbation"
+	Loc.VIP_Action_OnaniNormal = "Masturbatiing"
+	Loc.VIP_Action_NeKataashiage = "Doing a Supine one-leg raise"
+	Loc.VIP_Action_OnaniArmKuri = "Doing Clitoris Play"
+	Loc.VIP_Action_GanimataKoshiHeko = "Doing a Hip-Thrust"
+	Loc.VIP_Action_Haigure = "Doing a High-Cut Pose"
+	Loc.VIP_Action_PeeStand = "Doing Standing Urination"
+	Loc.VIP_Action_OnaniSikoru = "While Stroking"
 
 	# Face
-	Loc.VIP_SubCondition_Face_Orgasm = "Orgasm face"
+	Loc.VIP_SubCondition_Face_Orgasm = "Photograph your face during orgasm"
 	Loc.VIP_SubCondition_Face_Kink = "Gagged"
-	Loc.VIP_SubCondition_Face_Lewd = "Edging face"
-	Loc.VIP_SubCondition_Exposed_Face = "Face revealed"
+	Loc.VIP_SubCondition_Face_Lewd = "Photograph your face while edging"
+	Loc.VIP_SubCondition_Exposed_Face = "Do a face reveal"
 
 	#Cosplay
-	Loc.VIP_Set_Ninja = "Ninja cosplay"
-	Loc.VIP_Set_AdultSweater = "Adult Sweater cosplay"
-	Loc.VIP_Set_Jumpsuit = "Jumpsuit cosplay"
-	Loc.VIP_Set_Succubus = "Succubus cosplay"
-	Loc.VIP_Set_TacticalMaid = "Tactical Maid cosplay"
+	Loc.VIP_Set_Ninja = "In a ninja cosplay"
+	Loc.VIP_Set_AdultSweater = "In an Adult Sweater cosplay"
+	Loc.VIP_Set_Jumpsuit = "In a Jumpsuit cosplay"
+	Loc.VIP_Set_Succubus = "In a Succubus cosplay"
+	Loc.VIP_Set_TacticalMaid = "In a Tactical Maid cosplay"
 
 
 	# EN Localisation note to match GUI
@@ -206,6 +209,7 @@ Locale_EN:
 
 	
 	# Hunter Level <= 1 / 等级 <= 1
+	# Hunter lines are currently hardcoded at Hunter_chat_EN
 	Loc.Hunter_Prefix_L1_0 = "What I just saw... was that not my imagination?"
 	Loc.Hunter_Prefix_L1_1 = "Are you doing that on purpose to get my attention?"
 	Loc.Hunter_Prefix_L1_2 = "Do you know someone nearby is watching you?"
@@ -246,6 +250,9 @@ Locale_EN:
 
 	# 可选
 	Loc.Hunter_Lost = "......I can't find you."
+	Loc.Hunter_Lost_1 = "Where did you go?"
+	Loc.Hunter_Lost_2 = "Can I not meet you?"
+
 	Loc.Hunter_ArrivedNear = "I'm already near the {AREA}."
 
 	Output:

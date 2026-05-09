@@ -13,15 +13,17 @@
 		- Auto-slow when entering messenger to allow for certain tricky action photos. Although Slow can already be toggled while in messenger
 	 	- Allow gallery image posting to FansChat. Allows the scoring of historical photos or photos from other mods eg PoliceHunt-NSFW gallery photos. Check against a History blacklist to prevent scoring the same picture multiple times
 	 	- Toggleable screen overlay of the FansChat, hunter-chat, and PoliceHunt chat logs.
-		- Randomised delay for receiving text from stalker; receiving it immediately feels jank
 
 	Anonymity :
 		- Use CreateArea/CreateZone to prompt Manaka to move location between photos
 		- optional Anonymity meter, like with focus meter
 		- Anonymity level affects how quickly Hunters recognise Manaka
 		- Subcondition or similar function to check the state of specific face regions. This allows VIP requests or other logic to specifically verify if eyes are visible, or mouth is visible
-		- Improve anonymity meter so that current conditions (lighting, camera angle) are relayed to the player
-		- Diagetically inform the player of the stalker spawn chance after taking photo
+		- Improve anonymity meter so that current conditions (lighting, camera angle) are relayed to the player?
+
+	Hunters :
+		- Clear stalker chat when it makes sense to avoid the chat becoming difficult to read
+		- Randomised delay for receiving chat from stalker; receiving it immediately feels jank
 
 	Photo score to include : 
 		- dropped items in frame! eg. posing naked next to your coat
@@ -33,6 +35,7 @@
 
 	Vip Request
 		- Requests could sometimes use CreateArea/CreateZone to request photo at a location, eg within 20m of an already existing stage zone
+		- Add being certain distances from your coat to the request pool to prevent cheesing by being naked for an extremely short time
 
 	Livestream mode:
 		- Struggle to maintain anonymity in realtime. eg. keep face out of view, change location frequently. This is depicted with a mission progress bar.
@@ -44,12 +47,18 @@
 ## by finalfantasyenjoyer
 	
 	- Improved English localisation:
+		- Added dialogue for being identified by your location
 		- VIP mission conditions updated for clarity
 		- Settings menu descriptions updated for clarity
 		- Text messages after taking photos are improved
 		- Text messages from stalkers are improved
 		- "fanschat stalker" renamed to "FansChat Inbox"
+		
 	- Anonymity is averaged again to prevent easy 100% anonymity. Changed default risky threshold to 0.3
+
+	- Known Issues:
+		- Photo responses sometimes contain a null in the message (pre-existing issue)
+		- CN localisation may have new issues due to changes
 
 # Fanschat v15
 ## by eicosa

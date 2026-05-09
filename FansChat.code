@@ -52,22 +52,22 @@ if _save.fans==null
 # 文本函数
 # -----------------------------------------
 get_fanschat_risky_message_list:
-	_result = CreateList(Tx.FansChat_LowAnonDanger_0, Tx.FansChat_LowAnonDanger_1,)
+	_result = CreateList(Tx.FansChat_LowAnonDanger,Tx.FansChat_LowAnonDanger_1,Tx.FansChat_LowAnonDanger_2,Tx.FansChat_LowAnonDanger_3,Tx.FansChat_LowAnonDanger_4,)
 
 get_fanschat_risk_zone_message_list:
-	_result = CreateList(Tx.FansChat_PhotoInRiskZone_0, Tx.FansChat_PhotoInRiskZone_1,)
+	_result = CreateList(Tx.FansChat_PhotoInRiskZone,Tx.FansChat_PhotoInRiskZone_1,Tx.FansChat_PhotoInRiskZone_2,)
 
 get_fanschat_normal_prefix_list:
-	_result = CreateList(Tx.FansChat_NormalPrefix_0,Tx.FansChat_NormalPrefix_1,Tx.FansChat_NormalPrefix_2,Tx.FansChat_NormalPrefix_3,Tx.FansChat_NormalPrefix_4,Tx.FansChat_NormalPrefix_5)
+	_result = CreateList(Tx.FansChat_NormalPrefix_0,Tx.FansChat_NormalPrefix_1,Tx.FansChat_NormalPrefix_2,Tx.FansChat_NormalPrefix_3,Tx.FansChat_NormalPrefix_4,Tx.FansChat_NormalPrefix_5,)
 
 get_fanschat_normal_suffix_list:
-	_result = CreateList(Tx.FansChat_NormalSuffix_0,Tx.FansChat_NormalSuffix_1,Tx.FansChat_NormalSuffix_2,Tx.FansChat_NormalSuffix_3,Tx.FansChat_NormalSuffix_4,Tx.FansChat_NormalSuffix_5)
+	_result = CreateList(Tx.FansChat_NormalSuffix_0,Tx.FansChat_NormalSuffix_1,Tx.FansChat_NormalSuffix_2,Tx.FansChat_NormalSuffix_3,Tx.FansChat_NormalSuffix_4,Tx.FansChat_NormalSuffix_5,)
 
 get_fanschat_vip_prefix_list:
-	_result = CreateList(Tx.FansChat_VIPPrefix_0,Tx.FansChat_VIPPrefix_1,Tx.FansChat_VIPPrefix_2,Tx.FansChat_VIPPrefix_3,Tx.FansChat_VIPPrefix_4,Tx.FansChat_VIPPrefix_5)
+	_result = CreateList(Tx.FansChat_VIPPrefix_0,Tx.FansChat_VIPPrefix_1,Tx.FansChat_VIPPrefix_2,Tx.FansChat_VIPPrefix_3,Tx.FansChat_VIPPrefix_4,Tx.FansChat_VIPPrefix_5,)
 
 get_fanschat_vip_suffix_list:
-	_result = CreateList(Tx.FansChat_VIPsuffix_0,Tx.FansChat_VIPsuffix_1,Tx.FansChat_VIPsuffix_2,Tx.FansChat_VIPsuffix_3,Tx.FansChat_VIPsuffix_4,Tx.FansChat_VIPsuffix_5)
+	_result = CreateList(Tx.FansChat_VIPsuffix_0,Tx.FansChat_VIPsuffix_1,Tx.FansChat_VIPsuffix_2,Tx.FansChat_VIPsuffix_3,Tx.FansChat_VIPsuffix_4,Tx.FansChat_VIPsuffix_5,)
 
 # -----------------------------------------
 # Start Main
@@ -232,10 +232,12 @@ mainThread:
 			
 			lowAnon = false
 			photoInRiskZone = false
+			faceRevealed = false
 			if anon < _settings.anonThreshold #BUG: floating points make it unreliable if the player sets their threshold to the same as their anonymity
 				area_lastHunting = true
 				area_lastAlpha = 1
 				lowAnon = true
+				faceRevealed = true
 				Log("FC.main: Low anonymity photo taken, hunter risk increased.")
 			if zone_risk.Inside() || zone_risk.DistanceToNearest()<0.2
 				area_lastHunting = true
@@ -247,7 +249,7 @@ mainThread:
 				area_lastHunting = false
 				area_lastAlpha = 1
 
-			thread.Goto("photoNowSend", sso=snapshotobject, lowAnon=lowAnon, photoInRiskZone=photoInRiskZone)
+			thread.Goto("photoNowSend", sso=snapshotobject, lowAnon=lowAnon, photoInRiskZone=photoInRiskZone, faceRevealed=faceRevealed)
 
 	photoNowSend:
 		if lowAnon == null
@@ -340,19 +342,19 @@ mainThread:
 				suffix = get_fanschat_vip_suffix_list()
 
 			p = prefix[RandomInt(0, prefix.Count())]
-			s = suffix[RandomInt(0, suffix.Count())]
+			s = suffix[0] #RandomInt(0, suffix.Count())]
 
-			msg = ""
-			if Random() < 0.75
-				msg = p + s
-			else
-				msg = p
+			msg = p + s #""
+			#if Random() < 0.75
+				#msg = p + s
+			#else
+				#msg = p
 				
 			replyChatData[i] = CreateList(text=msg, align="Left", user="Chat Member", delay=0.8)
 
 			i = i + 1
 
-		thread.Goto("photoNowSend_afterReply", imageRef=file, lowAnon=lowAnon, photoInRiskZone=photoInRiskZone, hunterLevel=hunterLevel, hunterChance=hunterChance, replyChatData=replyChatData)
+		thread.Goto("photoNowSend_afterReply", imageRef=file, lowAnon=lowAnon, faceRevealed=faceRevealed, photoInRiskZone=photoInRiskZone, hunterLevel=hunterLevel, hunterChance=hunterChance, replyChatData=replyChatData)
 	
 	photoNowSend_afterReply:
 		spawnPos = get_hunter_spawn_pos()
@@ -362,18 +364,18 @@ mainThread:
 				spawnPos = _state.Position
 
 		if lowAnon
-			message = null
-			if photoInRiskZone
-				message = get_fanschat_risk_zone_message_list()
-				message = message[RandomInt(0, message.Count())]
-				chat.Add(message, "Left", "Chat Member", silent=false)
-				Log("FC.main: risk zone message selected.")
-			else
+			
+			if faceRevealed != null && faceRevealed
 				message = get_fanschat_risky_message_list()
 				message = message[RandomInt(0, message.Count())]
-				chat.Add(message, "Right", "M-chan", silent=false)
-				Log("FC.main: risky message selected.")
-				
+				chat.Add(message, "Right", "M-chan", silent=true)
+				Log("FC.main: risky message sent.")
+			if photoInRiskZone != null && photoInRiskZone
+				message = get_fanschat_risk_zone_message_list()
+				message = message[RandomInt(0, message.Count())]
+				chat.Add(message, "Left", "Chat Member", silent=true)
+				Log("FC.main: risk zone message sent.")
+
 			Log("FC.main: lowAnon check")
 			if Random() < lowAnonTriggerChance
 				data = GetSnapshotData(imageRef)

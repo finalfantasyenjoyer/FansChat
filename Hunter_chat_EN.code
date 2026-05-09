@@ -37,13 +37,13 @@ get_hunter_prefix_list:
 		Tx = Global("FC.Tx")
 	if level <= 1
 		#_result = CreateList(Tx.Hunter_Prefix_L1_0,Tx.Hunter_Prefix_L1_1,Tx.Hunter_Prefix_L1_2,Tx.Hunter_Prefix_L1_3,Tx.Hunter_Prefix_L1_4) # Works
-		_result = CreateList("", "", "")
+		_result = CreateList("I think I see you!","Can I come over and say hi?","You should let me help you.",)
 	elseif level == 2
 		#_result = CreateList(Tx.Hunter_Prefix_L2_0,Tx.Hunter_Prefix_L2_1,Tx.Hunter_Prefix_L2_2,Tx.Hunter_Prefix_L2_3,Tx.Hunter_Prefix_L2_4) # Works
-		_result = CreateList("", "", "")
+		_result = CreateList("Will you fuck me if I come over?","I need to cum on you.","I want to see your tits in person.","I want in on the next photo.",)
 	else
 		#_result = CreateList(Tx.Hunter_Prefix_L3_0,Tx.Hunter_Prefix_L3_1,Tx.Hunter_Prefix_L3_2,Tx.Hunter_Prefix_L3_3,Tx.Hunter_Prefix_L3_4) # Works
-		_result = CreateList("", "", "")
+		_result = CreateList("Let's fuck.","I need to use every part of you.","I'm on my way over.","I'm going to make you take responsibility for getting me this hard.","I want to keep you all to myself.",)
 		
 get_hunter_suffix_list:
 	if Tx == null
@@ -53,13 +53,13 @@ get_hunter_suffix_list:
 
 	if level <= 1
 		#_result = CreateList(Tx.Hunter_Suffix_L1_0, Tx.Hunter_Suffix_L1_1, Tx.Hunter_Suffix_L1_2) # Doesn't work
-		_result = CreateList("You're at the "+areaName+", aren't you? I'm on my way.")
+		_result = CreateList(" You're at the "+areaName+", aren't you? I'm coming over."," I'm on my way to the "+areaName+"."," Your last photo was at the "+areaName+", right?",)
 	elseif level == 2
 		#_result = CreateList(Tx.Hunter_Suffix_L2_0, Tx.Hunter_Suffix_L2_1, Tx.Hunter_Suffix_L2_2) # Doesn't work
-		_result = CreateList("", "", "")
+		_result = CreateList(" I can already see you at the "+areaName+"."," Stay at the "+areaName+", I'm almost there"," Everybody can tell what you're doing at the "+areaName+", you know.",)
 	else
 		#_result = CreateList(Tx.Hunter_Suffix_L3_0, Tx.Hunter_Suffix_L3_1, Tx.Hunter_Suffix_L3_2) # Doesn't work
-		_result = CreateList("", "", "")
+		_result = CreateList(" I'm going to cum on your tits once I get to the "+areaName+"."," Just stay at the "+areaName+"."," You should be more careful. You're at the "+areaName+". I'm on my way to cum to you.",)
 
 get_hunter_route_msg_list:
 	_result = CreateList(Tx.Hunter_Route_0,Tx.Hunter_Route_1,Tx.Hunter_Route_2,Tx.Hunter_Route_3)
@@ -71,7 +71,7 @@ get_hunter_route_msg_list:
 hunter_chat_main:
 	thread = _this
 	#Log("FC.HC : hunter_chat_main init")
-	chat = CreateMessengerChat("fanschat stalker")
+	chat = CreateMessengerChat("FansChat Inbox")
 	listener = CreateListenerLocal("hunter_chat_listener")
 	route_listener = CreateListenerLocal("fanschat_route_new_hunter_listener")
 	watcher = CreateListenerLocal("hunter_hunted_event_listener")
@@ -101,8 +101,8 @@ hunter_chat_listener:
 		p = prefix[RandomInt(0, prefix.Count())]
 		s = suffix[RandomInt(0, suffix.Count())]
 
-		chat.Add(p, "Left", silent=false)
-		chat.Add(s, "Left", silent=false)
+		chat.Add(p + s, "Left", silent=false)
+		#chat.Add(s, "Left", silent=false)
 		sndChatNotify.Play(0.25)
 		
 

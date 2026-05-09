@@ -444,7 +444,7 @@ generate_vip_request:
 		risk_pool.Insert("Orgasm")
 	if _state.Rank > 2 #Nympho
 		expose_pool.Insert("Exposed_Upper")
-		gear_pool.Insert("Cosplay_m_cosplay_general_genital_beads,(SubCondition_Vis_Groin,SubCondition_Vis_High)")
+		## gitignore this gear_pool.Insert("Cosplay_m_cosplay_general_genital_beads,(SubCondition_Vis_Groin,SubCondition_Vis_High)")
 		area_pool.Insert("Mansion","StationFront")
 		pose_pool.Insert("Action_DogTintin","Action_NeKataashiage","Action_OnaniArmKuri","Action_OnaniNeGanimata","Action_OnaniYotuashi","Action_ChikubiRotate","Action_MituasiOnani")
 		cosplayset_pool.Insert("SubCondition_Set_Ninja")
@@ -457,14 +457,14 @@ generate_vip_request:
 	if _state.Rank > 4 #Flasher
 		expose_pool.Insert("(Exposed_All,SubCondition_Vis_Naked)")
 		pose_pool.Insert("SubCondition_Action_SwitchP")
-		gear_pool.Insert("AdultToy_PistonPussy,(SubCondition_Vis_Groin,SubCondition_Vis_High)","AdultToy_PistonAnal,(SubCondition_Vis_Groin,SubCondition_Vis_High)")
+		## gitignore this gear_pool.Insert("AdultToy_PistonPussy,(SubCondition_Vis_Groin,SubCondition_Vis_High)","AdultToy_PistonAnal,(SubCondition_Vis_Groin,SubCondition_Vis_High)")
 	if _state.Rank > 5 #Flash Fiend
 		risk_pool.Insert("!Skill_Slow,!Skill_TimeStop")
 		face_pool.Insert("SubCondition_Face_Kink")
 	if _state.Rank > 6 #Apex Flasher
 		face_pool.Insert("SubCondition_Exposed_Face")
 		pose_pool.Insert("TimedHandcuffs,HandcuffsBack","TimedHandcuffs,HandcuffsObject","Dashing")
-		risk_pool.Insert("Stamina<0.1","Detection>1","SubCondition_Risk_Panting")
+		## gitignore this risk_pool.Insert("Stamina<0.1","Detection>1","SubCondition_Risk_Panting")
 
 	# Hard Mode!
 	risk_poolHard1 = CreateList("SubCondition_Vis_NPC","Detection>1","Orgasm","NearNPC","SubCondition_Risk_Panting")
