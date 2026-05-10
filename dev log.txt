@@ -57,8 +57,10 @@
 	- Anonymity is averaged again to prevent easy 100% anonymity. Changed default risky threshold to 0.3
 
 	- Known Issues:
-		- Photo responses sometimes contain a null in the message (pre-existing issue)
+		- Photo responses frequently contain a null in the message (pre-existing issue)
 		- CN localisation may have new issues due to changes
+
+	I'd like to do more with the updated English localisation, but I would like feedback on the new dialogue before I write more.
 
 # Fanschat v15
 ## by eicosa

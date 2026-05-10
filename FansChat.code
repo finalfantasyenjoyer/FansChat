@@ -341,8 +341,17 @@ mainThread:
 				prefix = get_fanschat_vip_prefix_list()
 				suffix = get_fanschat_vip_suffix_list()
 
-			p = prefix[RandomInt(0, prefix.Count())]
-			s = suffix[0] #RandomInt(0, suffix.Count())]
+			randomPrefix = RandomInt(0, prefix.Count() - 1)
+			randomSuffix = RandomInt(0, suffix.Count() - 1)
+
+			p = prefix[randomPrefix]
+			s = suffix[randomSuffix]
+
+			# why the fuck are the suffixes null sometimes
+			#Log("DEBUG: prefix = " + randomPrefix)
+			#Log("DEBUG: Selected string: " + p)
+			#Log("DEBUG: suffix = " + randomSuffix)
+			#Log("DEBUG: Selected string: " + s)
 
 			msg = p + s #""
 			#if Random() < 0.75
@@ -350,7 +359,7 @@ mainThread:
 			#else
 				#msg = p
 				
-			replyChatData[i] = CreateList(text=msg, align="Left", user="Chat Member", delay=0.8)
+			replyChatData[i] = CreateList(text=msg, align="Left", user="Chat Member", delay=1)
 
 			i = i + 1
 
